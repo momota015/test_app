@@ -20,7 +20,7 @@ function createTodoData($todoText)
     $dbh->query($sql);
 }
 
-//登録したデータをDBから全件取得する
+//　登録したデータをDBから全件取得する
 function getAllRecords()
 {
     $dbh = connectPdo();
