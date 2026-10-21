@@ -27,3 +27,12 @@ function getAllRecords()
     $sql = 'SELECT * FROM todos WHERE deleted_at IS NULL';
     return $dbh->query($sql)->fetchAll();
 }
+
+
+// 更新処理
+function updateTodoData($post)
+{
+    $dbh = connectPdo();
+    $sql = 'UPDATE todos SET content = "' . $post['content'] . '" WHERE id = ' . $post['id'];
+    $dbh->query($sql);
+}
