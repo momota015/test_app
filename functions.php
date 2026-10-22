@@ -16,7 +16,7 @@ function getSelectedTodo($id)
     return getTodoTextById($id); 
 }
 
-function savePostedData($post)
+function savePostedData($post) // 送信元のページ
 {
     $path = getRefererPath();
     switch ($path) {
