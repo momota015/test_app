@@ -29,6 +29,7 @@ function getAllRecords()
 }
 
 
+
 // 更新処理
 
 function updateTodoData($post)
@@ -38,6 +39,7 @@ function updateTodoData($post)
     $dbh->query($sql);
 }
 
+//指定したIDのTodoの「内容」だけを取り出して返す処理(更新画面（edit.php）で、今の内容を入力欄に表示するときに使う)
 function getTodoTextById($id)
 {
     $dbh = connectPdo();
@@ -46,13 +48,12 @@ function getTodoTextById($id)
     return $data['content'];
 }
 
+
+//論理削除処理（deleted_at に現在の日時を入れている）
 function deleteTodoData($id)
 {
     $dbh = connectPdo();
     $now = date('Y-m-d H:i:s');
-    /*
-
-    ここの処理を考えて記述してください。
-
-    */
+    $sql = 'UPDATE todos SET deleted_at = "' . $now . '" WHERE id = ' . $id;
+    $dbh->query($sql);
 }
