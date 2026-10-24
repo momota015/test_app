@@ -5,18 +5,20 @@ require_once('functions.php');
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
 </head>
+
 <body>
   welcome hello world
   <div>
-     <a href="new.php">
-       <p>新規作成</p>
-     </a>
+    <a href="new.php">
+      <p>新規作成</p>
+    </a>
   </div>
-  <div> 
+  <div>
     <table>
       <tr>
         <th>ID</th>
@@ -30,11 +32,11 @@ require_once('functions.php');
           <td><?= $todo['id']; ?></td>
           <td><?= $todo['content']; ?></td>
           <td>
-            <a href="">更新</a>
+            <a href="edit.php?id=<?= $todo['id']; ?>">更新</a>
           </td>
           <td>
             <form action="store.php" method="post">
-              <input type="hidden" name="id" value="">
+              <input type="hidden" name="id" value="<?= $todo['id']; ?>">
               <button type="submit">削除</button>
             </form>
           </td>
@@ -44,4 +46,5 @@ require_once('functions.php');
     </table>
   </div>
 </body>
+
 </html>
