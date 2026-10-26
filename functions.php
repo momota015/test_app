@@ -21,6 +21,7 @@ function getSelectedTodo($id)
 function savePostedData($post) // 送信元のページ
 {
   checkToken($post['token']);
+  validate($post);
 
   $path = getRefererPath();
   switch ($path) {
@@ -70,4 +71,12 @@ function redirectToPostedPage()
 {
   header('Location: ' . $_SERVER['HTTP_REFERER']);
   exit();
+}
+
+function validate($post)
+{
+  if (isset($post['content']) && $post['content'] === '') {
+    $_SESSION['err'] = '入力がありません';
+    redirectToPostedPage();
+  }
 }
