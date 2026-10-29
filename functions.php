@@ -67,6 +67,7 @@ function unsetError()
   $_SESSION['err'] = '';
 }
 
+//フォームを送信した元のページに戻す処理
 function redirectToPostedPage()
 {
   header('Location: ' . $_SERVER['HTTP_REFERER']);
